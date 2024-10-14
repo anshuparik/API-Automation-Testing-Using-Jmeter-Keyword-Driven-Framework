@@ -189,7 +189,6 @@ SampleResult.setIgnore();</stringProp>
           <hashTree/>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Prod Env" enabled="false">
-          <stringProp name="TestPlan.comments">BaseURL	${__P(BaseURL)}	,Apigee_IP	dev.subscriptions.api.hp.com</stringProp>
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Prod&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -221,7 +220,7 @@ SampleResult.setIgnore();</stringProp>
           </Arguments>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env" enabled="false">
           <stringProp name="TestPlan.comments">BaseURL	${__P(BaseURL)}	,Apigee_IP	dev.subscriptions.api.hp.com</stringProp>
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Pie&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
@@ -254,7 +253,7 @@ SampleResult.setIgnore();</stringProp>
           </Arguments>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Dev Env" enabled="false">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Dev Env">
           <stringProp name="TestPlan.comments">&quot;Apigee_IP&quot;==&quot;dev.subscriptions.api.hp.com&quot;</stringProp>
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Dev&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
