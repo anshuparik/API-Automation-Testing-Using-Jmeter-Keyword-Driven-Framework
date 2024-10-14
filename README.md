@@ -1,70 +1,67 @@
-# API-Automation-Testing-Using-Jmeter-Keyword-Driven-Framework
-Keyword-Driven Framework for API Automation Testing Using Jmeter
-![image](https://github.com/user-attachments/assets/4f9b24ea-8e6f-4f47-81ae-4081df01f801)
- 
-User-Defined Global Variables – Put variables that apply to all the environments, you can also add multiple user-defined variables.
+# API Automation Testing Using JMeter Keyword-Driven Framework
 
-![image](https://github.com/user-attachments/assets/db9041c0-4e88-462d-81b1-17fc0c99d3e8)
+## Overview
+This framework is designed for API automation testing using JMeter with a keyword-driven approach. It allows for flexible test execution by using data-driven inputs, making it easier to manage and scale API tests across multiple environments.
 
-You can add multiple Include controller as per requirements.
-Whatever name you provide include controller same name needs to be put in CSV.
-All the JMX are available under Test_Files folder. You can put path as shown in picture else you can use absolute path.
+## Features
+- **Keyword-Driven**: Executes test scenarios based on keywords provided in a CSV file, allowing for easy modifications.
+- **Environment-Specific Setup**: Supports multiple environments (e.g., DEV, QA, PROD) with custom configurations.
+- **Flexible Execution Order**: Test execution order is driven by the CSV file, not by the sequence in the JMeter test plan.
 
-![image](https://github.com/user-attachments/assets/dd852191-f15f-4cd9-a832-d09089e8df2c)
+## Framework Structure
 
-To add more cases or debug existing cases open JMX under include controller do changes in this JMX and save.
-You can add multiple API calls in the same JMX
-You can also add multiple transaction controllers. 
-Note - You can’t add a thread group besides that, there are no restrictions.
+### 1. Global Variables
+- Use **User-Defined Global Variables** for values that apply across all environments.
+- You can easily add or modify variables as needed.
 
-![image](https://github.com/user-attachments/assets/f7c0866b-d1be-44f1-8fca-06d6c9e7c799)
+![Global Variables](https://github.com/user-attachments/assets/db9041c0-4e88-462d-81b1-17fc0c99d3e8)
 
-CSV is available at this path. No need to change the path if you clone the project. but if it does not work you can put an absolute path.
+### 2. Include Controllers
+- Include multiple controllers in the test plan based on your requirements.
+- Ensure that the name of the include controller matches the name specified in the CSV file.
+- The JMX files for these controllers are stored in the `Test_Files` folder, and you can use either relative or absolute paths.
 
-![image](https://github.com/user-attachments/assets/d84d3217-8540-4b09-883c-c73c8041a955)
+![Include Controller Setup](https://github.com/user-attachments/assets/dd852191-f15f-4cd9-a832-d09089e8df2c)
 
-Jmeter will execute the include controller based on how you put the include controller name in CSV, not under the switch controller. 
-E.g. – If you put Get call at last in include controller but in CSV if it is at first then Get call will execute at first.
+### 3. Test Case Management
+- To add or modify test cases, update the JMX file under the relevant include controller.
+- You can include multiple API calls and transaction controllers in a single JMX file.
+- **Note**: Do not add thread groups to the include controllers, as they are not supported.
 
-![image](https://github.com/user-attachments/assets/eaba7ead-0b6a-4f5e-a8bd-cfb533fcb411)
-![image](https://github.com/user-attachments/assets/a082196b-2f8c-4921-b25d-6ad6d42b981b)
+![Test Case Management](https://github.com/user-attachments/assets/f7c0866b-d1be-44f1-8fca-06d6c9e7c799)
 
-Whatever names you provide for include controller same should be put in the B column in the CSV
-Also, the jmeter will follow the execution order of CSV, not the switch controller.
+### 4. CSV Data File
+- The CSV file that drives test execution is located in the project folder.
+- It contains the mapping of include controller names to the order of execution.
+- **Execution Order**: JMeter will follow the order specified in the CSV file, not the order in the switch controller.
 
-![image](https://github.com/user-attachments/assets/b0ede5d7-4147-4ff7-a73b-01bf5ad2d4d3)
+![CSV File Path](https://github.com/user-attachments/assets/d84d3217-8540-4b09-883c-c73c8041a955)
 
-You can add environment-specific variables under the IF controller.
-You can also add multiple user-defined variables under the IF controller. 
-Just make sure the key is be same in all environments and values can be different.
+### 5. Environment-Specific Variables
+- Add environment-specific variables under the IF controller for different configurations.
+- Ensure that the keys are the same across all environments, with values adjusted according to each environment's needs.
 
-![image](https://github.com/user-attachments/assets/a6301af2-0311-429c-9f8e-41333b398ec4)
+![Environment-Specific Variables](https://github.com/user-attachments/assets/a6301af2-0311-429c-9f8e-41333b398ec4)
 
-To execute on a specific environment just enable only that environment and disable the other two
-Like In this case PROD is enabled to execute on the PROD environment and Dev, QA is disabled.
+### 6. Execution Control
+- To run tests in a specific environment, enable only that environment in the IF controller and disable the others.
+- For example, enable PROD to execute tests in the PROD environment while keeping DEV and QA disabled.
+
+![Execution Control](https://github.com/user-attachments/assets/249f1002-fce7-4db3-bb58-df90d2b8d8ba)
+
+### 7. Reporting
+- Test results are automatically saved in the Test result folder.
+- No need to change the path. Most probably it will work but if this do not work you can put an absolute path.
+- You can also put multiple view result trees for different kinds of formats like JTL and XML.
 
 ![image](https://github.com/user-attachments/assets/249f1002-fce7-4db3-bb58-df90d2b8d8ba)
 
-Reports will be available in the Test result folder. 
-No need to change the path. Most probably it will work but if this do not work you can put an absolute path.
-You can also put multiple view result trees for different kinds of formats like JTL and XML.
+### 7. Debugging
+- The framework includes debug samplers to help identify and resolve issues during test execution.
+- Even if specific test cases are disabled, the debug samplers will still execute to assist with troubleshooting.
+- This flexibility allows you to focus on debugging specific parts of your test plan without affecting the overall execution.
 
-![image](https://github.com/user-attachments/assets/a8578c84-0c0f-4856-a8c4-86eef7dc8208)
-
-These are debug samplers for debugging.
-Even if you disable a few test cases (Include controller) as shown in the picture.
-Still, debug sampler will execute but do not worry cases under them won’t execute.
-So, there is flexibility to execute only those cases which are required.
-
-
-
-
-
-
-
-
-
-
+![Debugging](https://github.com/user-attachments/assets/a8578c84-0c0f-4856-a8c4-86eef7dc8208)
 
 
 
