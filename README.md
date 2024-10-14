@@ -5,7 +5,8 @@ Keyword-Driven Framework for API Automation Testing Using Jmeter
 User-Defined Global Variables – Put variables that apply to all the environments, you can also add multiple user-defined variables.
 
 ![image](https://github.com/user-attachments/assets/db9041c0-4e88-462d-81b1-17fc0c99d3e8)
-You can add multiple include controller as per requirements.
+
+You can add multiple Include controller as per requirements.
 Whatever name you provide include controller same name needs to be put in CSV.
 All the JMX are available under Test_Files folder. You can put path as shown in picture else you can use absolute path.
 
@@ -51,7 +52,7 @@ You can also put multiple view result trees for different kinds of formats like 
 ![image](https://github.com/user-attachments/assets/a8578c84-0c0f-4856-a8c4-86eef7dc8208)
 
 These are debug samplers for debugging.
-Even if you disable a few test cases (include controller) as shown in the picture.
+Even if you disable a few test cases (Include controller) as shown in the picture.
 Still, debug sampler will execute but do not worry cases under them won’t execute.
 So, there is flexibility to execute only those cases which are required.
 
