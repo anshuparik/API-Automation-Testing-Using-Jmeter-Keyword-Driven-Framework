@@ -67,12 +67,12 @@
           <stringProp name="SwitchController.value">${actionVar}</stringProp>
         </SwitchController>
         <hashTree>
-          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="GET_Calls">
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="GET_Calls" enabled="true">
             <stringProp name="TestPlan.comments">MD001</stringProp>
             <stringProp name="IncludeController.includepath">Test_Files\GET_Calls.jmx</stringProp>
           </IncludeController>
           <hashTree/>
-          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Post_Calls">
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Post_Calls" enabled="true">
             <stringProp name="TestPlan.comments">MD002</stringProp>
             <stringProp name="IncludeController.includepath">Test_Files\Post_Calls.jmx</stringProp>
           </IncludeController>
@@ -218,7 +218,7 @@ SampleResult.setIgnore();</stringProp>
           </Arguments>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env" enabled="true">
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Pie&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -251,8 +251,7 @@ SampleResult.setIgnore();</stringProp>
           <hashTree/>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Dev Env">
-          <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Dev&quot; )}
-</stringProp>
+          <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Dev&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
