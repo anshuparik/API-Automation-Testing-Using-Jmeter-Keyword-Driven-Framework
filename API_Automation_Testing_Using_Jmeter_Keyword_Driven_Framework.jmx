@@ -32,7 +32,7 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables-Generic">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Global Variables">
         <collectionProp name="Arguments.arguments">
           <elementProp name="Environment" elementType="Argument">
             <stringProp name="Argument.name">Environment</stringProp>
@@ -71,10 +71,9 @@
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
-        <stringProp name="TestPlan.comments">dev: dev.subscriptions.api.hp.com PIE: test.subscriptions.api.hp.com</stringProp>
       </Arguments>
       <hashTree/>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Master Test Fragment" enabled="true"/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Master Test Fragment"/>
       <hashTree>
         <SwitchController guiclass="SwitchControllerGui" testclass="SwitchController" testname="Switch Controller">
           <stringProp name="SwitchController.value">${actionVar}</stringProp>
@@ -108,10 +107,10 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">C:/Users/arvind.pareek/Documents/GitHub/API_Automation_Testing_Using_Jmeter_Keyword-Driven_Framework/Keyword_CSV_File/Master_Controller.csv</stringProp>
+          <stringProp name="filename">${Base_Dir_Path}/Keyword_CSV_File/Master_Controller.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">false</boolProp>
@@ -196,7 +195,7 @@ SampleResult.setIgnore();</stringProp>
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
         <hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables-Generic for Prod Env">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables for Prod Env">
             <collectionProp name="Arguments.arguments">
               <elementProp name="Environment" elementType="Argument">
                 <stringProp name="Argument.name">Environment</stringProp>
@@ -213,6 +212,11 @@ SampleResult.setIgnore();</stringProp>
                 <stringProp name="Argument.value">Devops</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
+              <elementProp name="Report" elementType="Argument">
+                <stringProp name="Argument.name">Report</stringProp>
+                <stringProp name="Argument.value">Prod_Regression_${__timeShift(MM-dd-yyyy-HHmmss,,,,)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
             </collectionProp>
           </Arguments>
           <hashTree/>
@@ -224,7 +228,7 @@ SampleResult.setIgnore();</stringProp>
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
         <hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables-Generic for Prod Env">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables for Qa Env">
             <collectionProp name="Arguments.arguments">
               <elementProp name="Environment" elementType="Argument">
                 <stringProp name="Argument.name">Environment</stringProp>
@@ -241,6 +245,11 @@ SampleResult.setIgnore();</stringProp>
                 <stringProp name="Argument.value">Tester</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
+              <elementProp name="Report" elementType="Argument">
+                <stringProp name="Argument.name">Report</stringProp>
+                <stringProp name="Argument.value">Qa_Regression_${__timeShift(MM-dd-yyyy-HHmmss,,,,)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
             </collectionProp>
           </Arguments>
           <hashTree/>
@@ -252,7 +261,7 @@ SampleResult.setIgnore();</stringProp>
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
         <hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables-Generic for Prod Env">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables for Dev Env">
             <collectionProp name="Arguments.arguments">
               <elementProp name="Environment" elementType="Argument">
                 <stringProp name="Argument.name">Environment</stringProp>
@@ -267,6 +276,11 @@ SampleResult.setIgnore();</stringProp>
               <elementProp name="job" elementType="Argument">
                 <stringProp name="Argument.name">job</stringProp>
                 <stringProp name="Argument.value">Developer</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="Report" elementType="Argument">
+                <stringProp name="Argument.name">Report</stringProp>
+                <stringProp name="Argument.value">Dev_Regression_${__timeShift(MM-dd-yyyy-HHmmss,,,,)}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -308,11 +322,10 @@ SampleResult.setIgnore();</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">${CONFIG_PATH}/TestResults/${Report}.csv</stringProp>
-        <stringProp name="TestPlan.comments"> **DISABLE: All Argon Testcases</stringProp>
+        <stringProp name="filename">${Base_Dir_Path}/TestResults/${Report}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+      <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
         <stringProp name="ConstantTimer.delay">500</stringProp>
       </ConstantTimer>
       <hashTree/>
