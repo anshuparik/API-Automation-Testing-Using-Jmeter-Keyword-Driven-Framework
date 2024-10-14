@@ -1,3 +1,4 @@
 ModuleId,TicketID,description,keywords,module_name
 MD001,,GET_Calls,GET_Calls,GET
 MD002,,Post_Calls,Post_Calls,POST
+MD003,,Put_Calls,Put_Calls,PUT
