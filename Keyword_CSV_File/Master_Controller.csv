@@ -2,3 +2,5 @@ ModuleId,keywords,module_name,description
 MD001,GET_Calls,GET,GET_Calls
 MD002,Post_Calls,POST,Post_Calls
 MD003,Put_Calls,PUT,Put_Calls
+MD004,Patch_Calls,Patch,Patch_Calls
+MD005,Delete_Calls,Delete,Delete_Calls
