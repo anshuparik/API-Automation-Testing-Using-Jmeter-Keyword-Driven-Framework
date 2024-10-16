@@ -2,6 +2,7 @@
 
 ## Overview
 This framework is designed for API automation testing using JMeter with a keyword-driven approach. It allows for flexible test execution by using data-driven inputs, making it easier to manage and scale API tests across multiple environments.
+This low-code/no-code framework is designed to bring flexibility, scalability, and ease of execution to functional API testing, making it super simple to handle multiple environments like DEV, QA, and PROD. 🎯
 
 ## Features
 - **Keyword-Driven**: Executes test scenarios based on keywords provided in a CSV file, allowing for easy modifications.
