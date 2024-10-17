@@ -15,13 +15,13 @@
         <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
         <boolProp name="clearEachIteration">true</boolProp>
         <boolProp name="useExpires">true</boolProp>
         <boolProp name="CacheManager.controlledByThread">false</boolProp>
       </CacheManager>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">content-type</stringProp>
@@ -61,18 +61,19 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Master Test Fragment"/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Master Test Fragment" enabled="true"/>
       <hashTree>
         <SwitchController guiclass="SwitchControllerGui" testclass="SwitchController" testname="Switch Controller">
           <stringProp name="SwitchController.value">${actionVar}</stringProp>
+          <stringProp name="TestPlan.comments">Take Value from CSV and swtich Include controller according to that</stringProp>
         </SwitchController>
         <hashTree>
-          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="GET_Calls" enabled="true">
-            <stringProp name="TestPlan.comments">MD001</stringProp>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="GET_Calls">
+            <stringProp name="TestPlan.comments">If you place jmx file outside Project folder than you need to change the CSV Path</stringProp>
             <stringProp name="IncludeController.includepath">Test_Files\GET_Calls.jmx</stringProp>
           </IncludeController>
           <hashTree/>
-          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Post_Calls" enabled="true">
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Post_Calls">
             <stringProp name="TestPlan.comments">MD002</stringProp>
             <stringProp name="IncludeController.includepath">Test_Files\Post_Calls.jmx</stringProp>
           </IncludeController>
@@ -115,6 +116,7 @@
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">true</boolProp>
           <stringProp name="variableNames"></stringProp>
+          <stringProp name="TestPlan.comments">If you place CSV file outside Project folder than you need to change the CSV Path</stringProp>
         </CSVDataSet>
         <hashTree/>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Executing ${ModuleId} - Keywords: ${__split(${keywords},keyword,;)}">
@@ -146,7 +148,7 @@ SampleResult.setIgnore();</stringProp>
             <boolProp name="IfController.useExpression">true</boolProp>
           </IfController>
           <hashTree>
-            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -157,7 +159,7 @@ vars.put(&quot;userType&quot;,keys[2]);
 vars.put(&quot;newAction&quot;,keys[0]+&quot; &quot;+keys[1]);</stringProp>
             </JSR223Sampler>
             <hashTree>
-              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
                 <stringProp name="scriptLanguage">groovy</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -218,7 +220,7 @@ SampleResult.setIgnore();</stringProp>
           </Arguments>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller for Qa Env" enabled="false">
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Pie&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -254,6 +256,7 @@ SampleResult.setIgnore();</stringProp>
           <stringProp name="IfController.condition">${__groovy(vars.get(&quot;Environment&quot;) == &quot;Dev&quot; )}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
+          <stringProp name="TestPlan.comments">If you want to run test cases on Dev Env than enable only Dev Env and Disable rest two i.e Prod &amp; QA</stringProp>
         </IfController>
         <hashTree>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables for Dev Env">
@@ -318,9 +321,10 @@ SampleResult.setIgnore();</stringProp>
           </value>
         </objProp>
         <stringProp name="filename">${Base_Dir_Path}/TestResults/${Report}.csv</stringProp>
+        <stringProp name="TestPlan.comments">you can create mutltiple tree, if need any other report format</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+      <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
         <stringProp name="ConstantTimer.delay">500</stringProp>
       </ConstantTimer>
       <hashTree/>
